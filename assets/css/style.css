@@ -1,0 +1,1493 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f7f8fa; /* Ensure the page remains white */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+/* --- Variables --- */
+:root {
+    --primary-color: #1ac073; 
+    --text-color: #333;  
+    --heading-color: #ffffff;
+    --font-family: 'Rubik', sans-serif;
+    --max-width: 1200px;    /* Max content width */
+}
+
+
+/* --- Navbar Wrapper --- */
+.navbar-wrapper {
+    background-color: var(--primary-color); /* Green background for the navbar */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Navbar Styles --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    max-width: var(--max-width); /* Center navbar content */
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--heading-color);
+    text-decoration: none;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--heading-color);
+    font-weight: 350;
+    transition: color 0.2s ease;
+}
+
+.menu a:hover {
+    color: darken(var(--heading-color), 20%);
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icons img {
+    width: 25px;
+    height: 25px;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none; /* Class to hide elements */
+}
+
+/* --- Hamburger Icon --- */
+.hamburger {
+    display: none; /* Hidden on larger screens */
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--heading-color);
+    margin: 5px 0;
+    transition: transform 0.3s ease;
+}
+
+/* --- Cart Modal Styles --- */
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-modal.active {
+    display: flex;
+}
+
+.cart-modal-content {
+    width: 60%;
+    height: 60%;
+    padding: 20px;
+    background-color: #f7f8fa;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+}
+
+.cart-empty-message {
+    margin-bottom: 1rem; /* Space above the button */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-cart-icon {
+    width: 80px;
+    height: auto;
+    margin-top: 8rem; /* Space above the icon */
+}
+
+.cart-modal-content h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 1rem; /* Space above the message */
+}
+
+.cart-modal-content p {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem; /* Space *above* the button - Adjust as needed */
+}
+
+.close-cart-btn {
+    padding: 12px 32px;
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+
+  /* --- Media Queries --- */
+
+/* Larger Tablets/Small Desktops */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 30px; /* More padding on tablets */
+    }
+    :root {
+        --logo-font-size: 20px;
+    }
+
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .menu {
+        display: none; /* Hide by default */
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu a {
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block; /* Show on mobile */
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .icons {
+        margin-top: 10px;
+        justify-content: center;
+    }
+    :root {
+        --logo-font-size: 18px;
+    }
+
+    .cart-modal-content {
+        width: 90%;
+    }
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    margin: 0;
+    padding: 0;
+}
+
+.hero-background {
+    background-color: var(--primary-color); /* Green background */
+    padding: 40px 0; /* Top and bottom padding */
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    max-width: var(--max-width); /* Using variable for max-width */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+    color: var(--heading-color);
+}
+
+.hero-text h1 {
+    font-size: 4rem; /* Slightly reduced heading size */
+    line-height: 1.2;
+    margin-bottom: -0.2rem; /* Adjusted margin to match */
+    font-weight: 500;
+}
+
+.hero-text p {
+    font-size: 1rem; /* Reduced paragraph size */
+    font-weight: 350;
+    line-height: 1.2;
+    margin-bottom: 1.6rem; /* Adjusted margin to match */
+    max-width: 80%; /* ADDED max-width to paragraph to limit its width */
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 50%;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.search-bar {
+    display: flex;
+    margin-bottom: 6rem;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    font-size: 0.7rem;
+    padding: 1.2rem 0.8rem; /* Increased vertical padding in input */
+    outline: none
+}
+
+
+.search-bar button {
+    padding: 0.5rem 2.5em; /* Increased vertical padding in button */
+    background-color: #f3ba00;
+    color: var(--heading-color);
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: background-color 0.2s ease;
+    margin-right: 12rem; /* Please check if you need this large right margin */
+}
+
+.search-bar button:hover {
+    background-color: #d9a600;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 20px;
+        max-width: 500px; /* REDUCED max-width of hero-content on smaller screens */
+    }
+
+    .hero-text,
+    .hero-image {
+        max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem; /* Slightly reduced mobile heading size */
+    }
+
+    .hero-text p {
+        font-size: 0.9rem; /* Reduced mobile paragraph size */
+        max-width: 100%; /* On mobile, paragraph takes full width */
+    }
+
+    .search-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+        /* max-width: 400px;  REMOVED max-width from search-bar itself */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .search-bar input[type="text"],
+    .search-bar button {
+        width: 100%;
+        border-radius: 10px;
+        padding: 12px 10px;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+    }
+
+    .search-bar button {
+        border-radius: 10px;
+    }
+
+    .hero-image {
+        text-align: center;
+        padding-right: 0;
+    }
+
+
+    /* Additional media query for smaller screens */
+    @media (max-width: 480px) {
+        .hero-text h1 {
+            font-size: 2rem;
+        }
+
+        .hero-text p {
+            font-size: 0.8rem;
+        }
+
+    }
+}
+
+/* --- Cards Section Styles --- */
+
+.cards-section {
+    padding: 40px 0; /* Add padding around the whole section */
+}
+
+.cards-section h2 {
+    font-size: 2rem;
+    color: #333;
+    text-align: left; /* Align title to the left */
+    margin-bottom: 20px;
+    padding: 0 10rem; /* Match padding with hero section if needed */
+}
+
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    max-width: var(--max-width); /* Use max-width variable */
+    margin: 0 auto;
+    padding: 0 20px; /* Horizontal padding to align with hero section */
+}
+
+.food-card {
+    background-color: #f7f8fa; /* White card background */
+    border-radius: 10px;
+    overflow: hidden; /* Clip image corners to rounded edges */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out; /* Hover effect */
+}
+
+
+.card-image {
+    position: relative; /* For positioning discount badge */
+}
+
+.card-image img {
+    display: block;
+    width: 100%;
+    height: auto; /* Maintain image aspect ratio */
+    border-radius: 10px 10px 0 0; /* Rounded top corners of image */
+}
+
+.discount-badge {
+    position: absolute;
+    top: 0; /* Adjusted top position */
+    left: 0; /* Adjusted left position */
+    background-color: #f3ba00; /* Example discount badge color */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 1px; /* Make badge corners rounded again */
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.card-body {
+    padding: 10px;
+    text-align: left;
+    padding-top: 0px;
+}
+
+.food-name-price { /* NEW CONTAINER for name and price */
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Keep baseline alignment for name and price */
+    margin-bottom: 8px; /* Add margin to separate from rating-delivery */
+}
+
+
+.food-name {
+    font-size: 16px;
+
+    /* margin-bottom: 8px; REMOVED margin-bottom from food-name*/
+    color: var(--text-color);
+    font-weight: normal;
+    /* margin-right: 10px; REMOVED margin-right from food-name */
+}
+
+.price {
+    font-size: 1rem;
+    color: #333; /* Use your primary color for price */
+    font-weight: normal;
+    white-space: nowrap; /* Prevent price from wrapping */
+}
+
+.original-price {
+    color: #777; /* Gray color for original price */
+    margin-left: 5px;
+    font-weight: normal; /* Reset font-weight to normal for original price */
+}
+
+.strike {
+    text-decoration: line-through;
+    color: #777;
+}
+
+
+.rating-delivery {
+    display:flex;
+    height:70%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.rating {
+    color: #333; /* Yellow color for rating star */
+    margin-right: 5px;
+    background-color: #f2f2f2; /* ADD GRAY BACKGROUND */
+    padding: 2px 8px; /* ADD PADDING */
+    border-radius: 5px; /* ADD BORDER RADIUS for rounded corners */
+}
+
+.delivery-time {
+    margin-right: auto;
+    position: relative; /* Important: for positioning ::before */
+    background-color: #bebebe; /* Lighter gray background for top layer */
+    padding: 2px 10px; /* Slightly reduced vertical padding */
+    border-radius: 5px;
+    box-shadow: none; /* REMOVE existing box-shadow */
+    z-index: 1; /* Ensure text is on top */
+}
+
+.delivery-time::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 5px;
+    right: 5px;
+    bottom: 0;
+    background-color: #f2f2f2; /* Upper Layer */
+    border-radius: 5px;
+    z-index: -1; /* Position behind the text */
+}
+
+.add-button {
+    background-color: #f3ba00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1; /* Adjust line height to vertically center the plus */
+    padding-bottom: 2px; /* Fine tune vertical alignment of plus */
+    transition: background-color 0.2s ease;
+}
+
+.add-button:hover {
+    background-color: #d9a600; /* Darker primary color on hover */
+}
+
+
+/* --- Popular Carousel Section Styles --- */
+/* --- POPULAR CAROUSEL SECTION STYLES - FIXED ARROWS & CENTERING --- */
+.popular-carousel-section {
+    position: relative; /* For positioning arrows */
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.popular-carousel-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Slider Container - Controls width and overflow, NO SIDE MARGINS HERE */
+.slider-container {
+    overflow: hidden; /* Clip content within slider */
+    margin: 0 auto; /* Center the slider container itself */
+    max-width: calc(3 * 250px + 2 *15px); /* Width for 3 cards + gaps */
+
+}
+
+/* Slider - Flexbox for horizontal scrolling */
+.slider {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    align-items: center; /* Vertically align items in slider */
+    padding: 0; /* Reset padding */
+    margin: 0; /* Reset margins */
+}
+
+/* Slider Item (Card) - Individual card styles */
+.slider-item {
+    min-width: 250px;
+    max-width: 250px;
+    margin-right: 15px;
+    cursor: pointer;
+    background-color: #fff; /* Assuming white card background */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.35s ease-out, opacity 0.35s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Active (Middle) Slider Item - Lifted effect */
+.slider-item.active-slide {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slider-item .card-image {
+    position: relative;
+}
+
+.slider-item .card-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px 12px 0 0;
+}
+
+.slider-item .discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #f3ba00;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.slider-item .card-body {
+    padding: 15px 18px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-item .food-name-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.slider-item .food-name {
+    font-size: 1.15rem;
+    color: var(--text-color);
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.slider-item .price {
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.slider-item .original-price {
+    font-size: 0.9rem;
+    color: #888;
+    text-decoration: line-through;
+    margin-left: 6px;
+    font-weight: normal;
+}
+
+.slider-item .rating-delivery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1.5px solid #f0f0f0;
+}
+
+.slider-item .rating {
+    color: #f3ba00;
+    margin-right: 6px;
+    background-color: #f5f5f5;
+    padding: 4px 9px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.slider-item .delivery-time {
+    margin-right: auto;
+    background-color: #f5f5f5;
+    padding: 4px 9px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    z-index: 1;
+    font-size: 0.9rem;
+}
+
+.slider-item .delivery-time::before {
+    content: "";
+    position: absolute;
+    top: 1.5px;
+    left: 1.5px;
+    right: 1.5px;
+    bottom: 1.5px;
+    background-color: #d0d0d0;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+
+/* Arrow Styles - Positioned relative to slider-container */
+.arrow {
+    position: absolute; /* Absolute relative to slider-container */
+    top: 50%;
+    transform: translateY(-50%);
+    background: #1ac073; /* Keep the green background */
+    color: white;       /* CHANGED: Arrow color to WHITE */
+    border: none;
+    font-size: 2.2rem;
+    padding: 15px 15px;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 1;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Keep or adjust shadow */
+    /* -webkit-text-stroke: 1px #333;  REMOVED: Text stroke - not needed for white arrow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* ADJUSTED: Subtler text shadow */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow:hover {
+    opacity: 1;
+    background: none;
+    color: var(--primary-color);
+    -webkit-text-stroke: 1.5px var(--primary-color);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.left-arrow {
+    left: 300px; /* Positioned outside slider-container on left */
+}
+
+.right-arrow {
+    right: 300px; /* Positioned outside slider-container on right */
+}
+
+/* --- Request Dish Button Section --- */
+.request-dish-section {
+    padding-top: 20px; /* Add some top padding to separate from the carousel or previous section if needed */
+    padding-bottom: 20px; /* Add some bottom padding as well if you like */
+    text-align: center; /* Center the button horizontally within the section */
+}
+
+.request-dish-button {
+    background-color: #1ac073; /* Green color */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.request-dish-button:hover {
+    background-color: #c7eacc; /* Darker green on hover */
+}
+
+/* --- Request Dish Modal Styles --- */
+.request-dish-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed to viewport */
+    z-index: 1000; /* Ensures the modal appears on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+}
+
+/* Modal content box */
+.request-dish-modal-content {
+    position: fixed; /* Keeps the modal fixed in the center */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Align perfectly in the center */
+    background-color: #ffffff; /* White background */
+    padding: 20px 30px; /* Padding for content */
+    border-radius: 20px; /* Rounded corners */
+    width: 80%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Modal title */
+.request-dish-modal-content h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6rem;
+    text-align: center;
+}
+
+.request-dish-modal-content p1 {
+    font-size: 12px;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: -25px;
+    text-align: left;
+}
+
+.request-dish-modal-content p2 {
+    font-size: 12px;
+    font-weight: normal;
+    color: #333;
+    margin-top: -80px;
+    margin-bottom: -25px;
+    text-align: left;
+}
+
+/* Form styling */
+#request-dish-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between form elements */
+    align-items: left;
+    padding: 0px 20px;
+}
+
+/* Input fields */
+#request-dish-form input,
+#request-dish-form textarea {
+    width: 97%;
+    padding: 12px; /* Padding for inputs */
+    font-size: 14px;
+    border: 0px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light gray background */
+    outline: none;
+    margin-bottom: 5rem;
+}
+
+/* Placeholder styling */
+#request-dish-form input::placeholder,
+#request-dish-form textarea::placeholder {
+    color: #ccc; /* Light gray for placeholder text */
+}
+
+/* Fixed height for textarea */
+#request-dish-form textarea {
+    height: 20px; /* Fixed height for description */
+    resize: none; /* Prevent expanding */
+}
+
+#request-dish-form input:focus,
+#request-dish-form textarea:focus {
+    border-color: #1ac073; /* Green border */
+    background-color: #fff; /* White background on focus */
+    box-shadow: 0 0 5px rgba(26, 192, 115, 0.3); /* Subtle focus glow */
+}
+
+/* Buttons container */
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 5rem;
+}
+
+/* Submit button */
+.submit-request-button {
+    background-color: #1ac073; /* Green background */
+    color: #fff; /* White text */
+    border: 2px solid #1ac073; /* Green border */
+    padding: 10px 45px;
+    font-size: 14px;
+    font-weight: normal;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-request-button:hover {
+    background-color: #17a564; /* Slightly darker green */
+}
+
+/* Cancel button */
+.cancel-request-button {
+    background-color: transparent;
+    color: #1ac073; /* Green text */
+    border: 2px solid #1ac073; /* Green border */
+    padding: 10px 45px;
+    font-size: 14px;
+    font-weight: normal;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-request-button:hover {
+    background-color: #f7f7f7; /* Light gray background */
+    color: #17a564; /* Darker green text */
+    border-color: #17a564; /* Darker green border */
+}
+
+
+/*video section*/
+
+.video-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #FAFAFA 70%, #C7EACC 30%);
+}
+
+.video-section .content {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.video-section h2 {
+    font-size: 2.5rem;
+    color: #1d1d1d;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.video-section p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.video-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 5.5rem;
+}
+
+.video-wrapper video {
+    width: 100%; /* Expand to full width of parent */
+    max-width: 850px; /* Set a larger max width for the video */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 6px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background-color: #000;
+}
+
+/* Styles for the play/pause button */
+/* Play/Pause Button Styling */
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: green; /* Default button background */
+    color: white; /* Default icon color */
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 2; /* Ensure it's above the video */
+}
+
+.play-button:hover,
+.play-button:active {
+    background-color: white; /* Hover background */
+    color: green; /* Hover icon color */
+}
+
+.play-button:focus {
+    outline: none; /* Remove focus outline */
+}
+
+/* Video Styling */
+#promo-video {
+    cursor: pointer; /* Add a pointer cursor for the video */
+    display: block;
+}
+
+/* MEDIA QUERIES */
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+    .video-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .video-section h2 {
+        font-size: 2rem;
+    }
+
+    .video-section p {
+        font-size: 1rem;
+    }
+
+    .video-wrapper video {
+        max-width: 600px;
+    }
+}
+
+/* For mobile devices (480px and below) */
+@media (max-width: 480px) {
+    .video-section {
+        padding: 2rem 1rem;
+    }
+
+    .video-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .video-section p {
+        font-size: 0.95rem;
+    }
+
+    .video-wrapper video {
+        max-width: 100%;
+        border-radius: 4px;
+    }
+}
+
+/*contactUs section*/
+.contact-us-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px; /* Space between form and image */
+}
+
+.contact-us-form {
+    flex: 1;
+    max-width: 50%;
+}
+
+.contact-us-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.contact-us-form p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.contact-us-form input,
+.contact-us-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+}
+
+.contact-us-form button {
+    background-color: #1ac073;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-us-form button:hover {
+    background-color: #218838;
+}
+
+.contact-us-image {
+    flex: 1;
+    max-width: 50%;
+    text-align: right;
+}
+
+.contact-us-image img {
+    width: 100%;
+    max-width: 500px; /* Adjust the maximum width */
+    height: auto;
+}
+
+
+/* --- Footer Section--- */
+.footer {
+    background-color: #1ac073;
+    color: white;
+    padding: 20px 0 40px; /* Adds more space at the bottom */
+    text-align: center;
+    position: relative;
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Thin white line */
+}
+
+.footer-left h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-middle ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-middle ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-right .social-icon {
+    margin-left: 15px;
+}
+
+.footer-right .social-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* --- MEDIA QUERIES FOR WHOLE SITE --- */
+
+/* --- Tablet Styles (Up to 1024px) --- */
+@media (max-width: 1024px) {
+    /* --- General adjustments for tablet --- */
+    :root {
+        --max-width: 960px; /* Adjust max width for tablet */
+        --logo-font-size: 22px; /* Slightly smaller logo */
+    }
+
+    .navbar {
+        padding: 15px 20px; /* Adjust navbar padding */
+    }
+
+    .menu {
+        gap: 15px; /* Reduce menu item gap */
+    }
+
+    .icons {
+        gap: 10px; /* Reduce icon gap */
+    }
+
+    .hero-content {
+        gap: 2rem; /* Reduce gap in hero section */
+        padding: 0 15px;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem; /* Smaller hero heading */
+    }
+
+    .hero-text p {
+        font-size: 0.95rem;
+    }
+
+    .search-bar button {
+        margin-right: 4rem; /* Adjust search button margin */
+    }
+
+    .cards-section h2 {
+        font-size: 1.8rem;
+        padding: 0 2rem; /* Adjust cards section title padding */
+    }
+     .cards-grid {
+        padding: 0 15px; /* Adjust cards grid padding */
+    }
+
+    .popular-carousel-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .slider-container {
+        max-width: calc(2 * 250px + 15px) ; /* Show 2 cards in carousel on tablet */
+    }
+
+    .left-arrow {
+        left: 150px; /* Adjust arrow position for tablet carousel */
+    }
+
+    .right-arrow {
+        right: 150px; /* Adjust arrow position for tablet carousel */
+    }
+    .video-section .content {
+        max-width: 90%; /* wider content for tablet */
+    }
+
+    .video-wrapper video {
+        max-width: 90%; /* wider video for tablet */
+    }
+
+    .contact-us-section {
+        padding: 40px 15px;
+        flex-direction: column; /* Stack contact form and image */
+        text-align: center; /* Center align text in contact section */
+    }
+
+    .contact-us-form {
+        max-width: 80%; /* Make contact form full width on tablet */
+        margin: 0 auto; /* Center form on tablet */
+    }
+
+    .contact-us-image {
+        max-width: 80%; /* Make contact image full width on tablet */
+        text-align: center; /* Center image */
+        margin-top: 20px; /* Add spacing between form and image */
+    }
+
+    .footer-container {
+        padding: 0 15px; /* Adjust footer container padding */
+    }
+     .footer-middle ul {
+        gap: 10px; /* Reduce menu item gap in footer */
+    }
+}
+
+
+/* --- Mobile Styles (Up to 768px) --- */
+@media (max-width: 768px) {
+    /* Apply existing mobile styles from previous media queries */
+     :root {
+        --max-width: 100%; /* Full width for mobile */
+        --logo-font-size: 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        text-align: left; /* keep logo aligned left on mobile */
+    }
+
+    .menu {
+        display: none; /* Hide by default, toggled by hamburger */
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px; /* Space between logo and menu on mobile */
+    }
+
+    .menu.active {
+        display: flex; /* Show menu when active class is applied (by JS) */
+    }
+
+    .menu a {
+        display: block;
+        padding: 10px;
+        text-align: left; /* Align menu items to the left */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Visual separation for menu items */
+    }
+     .menu a:last-child {
+         border-bottom: none; /* remove border from last menu item */
+     }
+
+    .hamburger {
+        display: block; /* Show hamburger icon on mobile */
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .icons {
+        margin-top: 10px;
+        justify-content: flex-start; /* Align icons to start on mobile */
+    }
+
+    .hero-content {
+        flex-direction: column; /* Stack hero content on mobile */
+        text-align: center; /* Center text in hero on mobile */
+        padding: 0 10px;
+        gap: 20px; /* Reduce gap in hero section on mobile */
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem; /* Further reduce hero heading size on mobile */
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .search-bar {
+        flex-direction: column; /* Stack search bar elements on mobile */
+        gap: 10px;
+        margin-bottom: 3rem; /* Reduce margin below search bar on mobile */
+    }
+
+    .search-bar input[type="text"],
+    .search-bar button {
+        width: 100%; /* Full width search input and button on mobile */
+        border-radius: 8px; /* Consistent border radius for search elements */
+        padding: 1rem; /* Adjust padding in search elements on mobile */
+        font-size: 0.9rem;
+    }
+
+    .search-bar button {
+        border-radius: 8px; /* Ensure button also has rounded corners */
+        margin-right: 0; /* Remove right margin from button on mobile */
+        padding-left: 1em; /* keep padding for button */
+        padding-right: 1em;
+    }
+
+    .hero-image {
+        max-width: 90%; /* Limit hero image width on mobile */
+        text-align: center; /* Center hero image on mobile */
+    }
+
+    .cards-section {
+        padding: 30px 0; /* Reduce padding for cards section on mobile */
+    }
+
+    .cards-section h2 {
+        font-size: 1.6rem; /* Reduce cards section title size on mobile */
+        text-align: center; /* Center cards section title on mobile */
+        padding: 0 1rem; /* Adjust title padding on mobile */
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust card min width on mobile */
+        gap: 15px; /* Reduce gap between cards on mobile */
+        padding: 0 10px; /* Reduce cards grid padding on mobile */
+    }
+
+    .popular-carousel-section {
+        margin-bottom: 30px; /* Reduce margin below carousel on mobile */
+    }
+
+    .popular-carousel-section h2 {
+        font-size: 1.6rem; /* Reduce carousel title size on mobile */
+    }
+
+    .slider-container {
+        max-width: 250px; /* Show only 1 card in carousel on mobile */
+    }
+
+    .slider-item {
+        min-width: 200px; /* smaller cards for mobile carousel */
+        max-width: 200px;
+    }
+    .left-arrow, .right-arrow {
+        display: none; /* Hide arrows on mobile carousel for touch swipe navigation */
+    }
+
+    .video-section {
+        padding: 3rem 1rem; /* reduce padding for video section on mobile */
+    }
+
+    .video-section h2 {
+        font-size: 1.8rem; /* reduce video section heading size on mobile */
+    }
+
+    .video-section p {
+        font-size: 0.9rem; /* reduce video section paragraph size on mobile */
+    }
+    .video-wrapper video {
+        max-width: 100%; /* video full width on mobile */
+        margin-bottom: 4rem;
+    }
+    .contact-us-section {
+        padding: 30px 10px; /* reduce padding for contact section on mobile */
+    }
+
+    .contact-us-form h2 {
+        font-size: 20px; /* reduce contact form heading size */
+    }
+
+    .contact-us-form p {
+        font-size: 14px; /* reduce contact form paragraph size */
+    }
+
+    .contact-us-form {
+        max-width: 100%; /* contact form full width on mobile */
+    }
+
+    .contact-us-image {
+        max-width: 100%; /* contact image full width on mobile */
+    }
+    .contact-us-image img {
+        max-width: 100%; /* Ensure image inside is also full width */
+    }
+
+    .footer {
+        padding: 15px 0 30px; /* reduce footer padding on mobile */
+    }
+
+    .footer-container {
+        flex-direction: column; /* stack footer content on mobile */
+        text-align: center; /* center align footer text */
+        align-items: center; /* center align footer items */
+        padding: 0 10px;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+        margin-bottom: 15px; /* add margin between footer sections on mobile */
+    }
+    .footer-middle ul {
+        flex-direction: column; /* stack footer menu on mobile */
+        align-items: center; /* center align footer menu items */
+    }
+    :root {
+        --logo-font-size: 20px;
+    }
+
+    .cart-modal-content {
+        width: 95%; /* Make cart modal wider on mobile */
+        height: auto; /* Adjust height to content on mobile */
+        max-height: 80%; /* Limit max height if content is too long */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        padding: 15px; /* Reduce padding in cart modal on mobile */
+    }
+    .request-dish-modal-content {
+        width: 95%; /* Make request dish modal wider on mobile */
+        padding: 15px; /* Reduce padding in request dish modal on mobile */
+    }
+    .request-dish-modal-content h2 {
+        font-size: 24px; /* Reduce request dish modal heading size */
+        margin-bottom: 3rem; /* Adjust margin below heading */
+    }
+    #request-dish-form {
+         gap: 20px; /* Reduce gap in request dish form on mobile */
+         padding: 0 10px; /* Adjust padding in request dish form on mobile */
+    }
+     #request-dish-form input, #request-dish-form textarea {
+         padding: 10px; /* reduce padding in form inputs on mobile */
+         margin-bottom: 3rem; /* adjust margin below form inputs */
+     }
+     .modal-buttons {
+         flex-direction: column; /* stack modal buttons on mobile */
+         gap: 10px; /* reduce gap between modal buttons on mobile */
+         margin-top: 3rem; /* adjust margin above modal buttons */
+     }
+     .submit-request-button, .cancel-request-button {
+         width: 100%; /* full width modal buttons on mobile */
+         padding: 12px 20px; /* adjust padding in modal buttons */
+     }
+}
+
+/* --- Smaller Mobile Styles (Up to 480px) --- */
+@media (max-width: 480px) {
+     :root {
+        --logo-font-size: 18px; /* even smaller logo on very small mobiles */
+    }
+    .logo a {
+        font-size: var(--logo-font-size); /* Apply smaller logo font size */
+    }
+    .hero-text h1 {
+        font-size: 1.8rem; /* Even smaller hero heading for tiny mobiles */
+    }
+    .hero-text p {
+        font-size: 0.85rem; /* Even smaller hero paragraph for tiny mobiles */
+    }
+    .cards-grid {
+        grid-template-columns: 1fr; /* Stack cards in single column on very small mobiles */
+    }
+    .popular-carousel-section h2 {
+        font-size: 1.5rem; /* even smaller carousel title on tiny mobiles */
+    }
+     .video-section h2 {
+        font-size: 1.6rem; /* even smaller video heading on tiny mobiles */
+    }
+    .contact-us-form h2 {
+        font-size: 18px; /* even smaller contact form heading on tiny mobiles */
+    }
+    .contact-us-form p {
+        font-size: 13px; /* even smaller contact form paragraph on tiny mobiles */
+    }
+    .footer-left h1 {
+        font-size: 20px; /* even smaller footer logo on tiny mobiles */
+    }
+
+}
